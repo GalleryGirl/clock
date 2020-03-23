@@ -1,5 +1,17 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './App.css';
+
+// dot notation is a way to access an object's key, or property
+// . === 's
+// document is an object
+// document has a property called querySelector
+
+// a selector is a way to describe an element specified by html and css stuff
+// <div></div> select it by its tag name of a div
+// document.querySelector('div')
+// <div className="clock"></div>
+// document.querySelector('.clock')
+
 
 // const secondHand = document.querySelector('.second-hand');
 // const minsHand = document.querySelector('.min-hand');
@@ -28,23 +40,28 @@ import './App.css';
 
 
 function App() {
-  return (
 
+  const clock = useRef(null);
+  console.log("clock ref", clock);
+
+  const changeToYellow = () => {
+    if (clock.current) clock.current.style.backgroundColor = 'yellow';
+  }
+
+  return (
     <html lang="en">
       <head>
         <meta charset="UTF-8"/>
         <title>JS + CSS Clock</title>
       </head>
       <body>
-      
-        <div class="clock">
+        <div class="clock" ref={clock} onClick={changeToYellow}>
           <div class="clock-face">
             <div class="hand hour-hand"></div>
             <div class="hand min-hand"></div>
             <div class="hand second-hand"></div>
           </div>
         </div>
-
       </body>
     </html>
   );
