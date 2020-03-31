@@ -51,13 +51,31 @@ function App() {
   // console.log("clock ref", clock);
   console.log("secondHand", secondHand);
 
+  const secStyle = {
+    backgroundColor: 'red',
+  };
+
   const minsHand = useRef(null);
   console.log('minsHand', minsHand);
 
+  const minStyle = {
+    backgroundColor: 'purple',
+  };
+
+  
+  
+  const hourHand = useRef(null);
+  console.log('hourHand', hourHand);
+
+  const hourStyle = {
+    backgroundColor: 'pink',
+  };
 
   // const changeToYellow = () => {
   //   if (clock.current) clock.current.style.backgroundColor = 'yellow';
   // }
+
+
   const updateSecondHand = () => {
     const now = new Date();
     const seconds = now.getSeconds();
@@ -73,6 +91,15 @@ function App() {
     minsHand.current.style.transform = `rotate(${minsDegrees}deg)`;
   }
 
+  const updateHourHand = () => {
+    const now = new Date();
+    const seconds = now.getSeconds();
+    const mins = now.getMinutes();
+    const hour = now.getHours();
+    const hourDegrees = ((hour / 12) * 360) + ((mins/60)*30) + 90;
+    hourHand.current.style.transform = `rotate(${hourDegrees}deg)`;
+  }
+
   return (
     <html lang="en">
       <head>
@@ -80,8 +107,9 @@ function App() {
         <title>JS + CSS Clock</title>
       </head>
       <body>
-        <button type="button" onClick={updateSecondHand}>Update Seconds</button>
-        <button type="button" onClick={updateMinsHand}>Update Minutes</button>
+        <button type="button" style={secStyle} onClick={updateSecondHand}>Update Seconds</button>
+        <button type="button" style={minStyle} onClick={updateMinsHand}>Update Minutes</button>
+        <button type="button" style={hourStyle} onClick={updateHourHand}>Update Hour</button>
         {/* ref={clock} let's store a reference to this element 
             inside of the variable clock*/}
         <div
@@ -89,7 +117,7 @@ function App() {
           // ref={clock} onClick={changeToYellow}
         >
           <div className="clock-face">
-            <div className="hand hour-hand"></div>
+            <div className="hand hour-hand" ref={hourHand}></div>
             <div className="hand min-hand" ref={minsHand}></div>
             <div className="hand second-hand" ref={secondHand}></div>
           </div>

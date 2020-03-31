@@ -56,3 +56,7 @@ body {
 .min-hand {
   background-color: purple;
 }
+
+.hour-hand {
+  background-color: pink;
+}
