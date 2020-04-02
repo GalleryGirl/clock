@@ -23,27 +23,6 @@ import './App.css';
 
 function App() {
 
-// const secondHand = document.querySelector('.second-hand');
-// const minsHand = document.querySelector('.min-hand');
-// const hourHand = document.querySelector('.hour-hand');
-
-// function setDate() {
-//   const now = new Date();
-
-//   const seconds = now.getSeconds();
-//   const secondsDegrees = ((seconds / 60) * 360) + 90;
-//   secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
-
-
-//   const mins = now.getMinutes();
-//   const minsDegrees = ((mins / 60) * 360) + ((seconds/60)*6) + 90;
-//   minsHand.style.transform = `rotate(${minsDegrees}deg)`;
-
-//   const hour = now.getHours();
-//   const hourDegrees = ((hour / 12) * 360) + ((mins/60)*30) + 90;
-//   hourHand.style.transform = `rotate(${hourDegrees}deg)`;
-// }
-
 
   // const clock = useRef(null);
   const secondHand = useRef(null);
@@ -82,6 +61,7 @@ function App() {
     const secondsDegrees = ((seconds / 60) * 360) + 90;
     secondHand.current.style.transform = `rotate(${secondsDegrees}deg)`;
   }
+  setInterval(updateSecondHand, 1000);
 
   const updateMinsHand = () => {
     const now = new Date();
@@ -90,15 +70,17 @@ function App() {
     const minsDegrees = ((mins / 60) * 360) + ((seconds/60)*6) + 90;
     minsHand.current.style.transform = `rotate(${minsDegrees}deg)`;
   }
+ setInterval(updateMinsHand, 1000);
 
   const updateHourHand = () => {
     const now = new Date();
-    const seconds = now.getSeconds();
     const mins = now.getMinutes();
     const hour = now.getHours();
     const hourDegrees = ((hour / 12) * 360) + ((mins/60)*30) + 90;
     hourHand.current.style.transform = `rotate(${hourDegrees}deg)`;
   }
+  setInterval(updateHourHand, 1000);
+
 
   return (
     <html lang="en">
@@ -146,6 +128,7 @@ export default App;
   // update each of your clock hand postiion continuously
 
   // Task: continuously update your second hand using setInterval. 
+// setInterval(setTime,1000);
 
 // Task C: 
   // represent current time with State
