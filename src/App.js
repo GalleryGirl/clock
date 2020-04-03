@@ -131,5 +131,12 @@ export default App;
 // setInterval(setTime,1000);
 
 // Task C: 
-  // represent current time with State
-  // use the current time to modify the position of the clock hands
+  // create a state called currentTime
+  // In your APP's jsx, create a h1 tag under neath the clock
+  // the h1 tag will contain the value of your currentTime
+  // create a button with the name "update current time"
+  // create a function called updateCurrentTime 
+    // which allows you to modify your currentTime state, to the most recent time
+    // new Date()
+  // when you click the button "update current time", it will call the function "updateCurrentTime"
+    // and it will change the value of your state, thus changing the h1 tag
