@@ -2,10 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import ClockWithState from './ClockWithState';
 import AppleEater from './AppleEater';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+// ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<ClockWithState />, document.getElementById('root'));
 //ReactDOM.render(<AppleEater />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
